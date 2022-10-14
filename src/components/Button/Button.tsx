@@ -1,6 +1,19 @@
 import React from 'react'
-import { style } from './Button.style'
+import './Button.css'
 
-export const Button = () => {
-  return <div style={style.main}>Button</div>;
+export interface Props {
+  children?: React.ReactNode;
+  style?: React.CSSProperties;
+  onClickAction?: () => void;
+}
+
+export const Button: React.FC<Props> = ({ 
+  children, 
+  style,
+  onClickAction
+}) => {
+
+  const handleOnclick = () => onClickAction;
+  
+  return <div className='main' style={style} >{children}</div>;
 }
