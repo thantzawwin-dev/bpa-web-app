@@ -1,9 +1,9 @@
-export interface Props {
+export type Props = {
   light: SubProps;
   dark: SubProps;
 }
 
-interface SubProps {
+export type SubProps = {
   foreground: string;
   background: string;
 }
@@ -17,4 +17,4 @@ export const THEME: Props = {
     foreground: "#ffffff",
     background: "#222222",
   },
-};
+}
