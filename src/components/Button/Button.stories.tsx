@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button, Props } from './Button';
 
 export default {
@@ -7,7 +7,7 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Button",
+  title: "components/Button",
   component: Button,
   // argTypes: {
   //   children: {
@@ -21,7 +21,7 @@ export default {
   // },
 } as ComponentMeta<typeof Button>;
 
-const Template: Story<Props> = (args: JSX.IntrinsicAttributes & Props) => <Button {...args} >Press me</Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} >Press me</Button>;
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
