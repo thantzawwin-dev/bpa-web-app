@@ -1,4 +1,4 @@
-export const HttpStatusCode = {
+export const HTTP_STATUS_CODE = {
   // 1xx Informational
   100: "Continue",
   101: "Switching protocols",

@@ -1,4 +1,7 @@
-import { THEME } from './themeContext/themeConstant'
-import { ThemeProvider, useTheme } from "./themeContext/theme.context";
+import { useTheme } from './themeContext/theme.context'
+import { ThemeProps } from './themeContext/theme.schema'
+import { ThemeProvider } from './themeContext/ThemeProvider'
 
-export { ThemeProvider, useTheme, THEME };
+export { useTheme, ThemeProvider }
+export type { ThemeProps }
+

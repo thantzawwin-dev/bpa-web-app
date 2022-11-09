@@ -1,4 +1,4 @@
-import { set, get } from './localStorage'
+import { set, get } from '../utils/localStorage'
 
 export {
   get, set
