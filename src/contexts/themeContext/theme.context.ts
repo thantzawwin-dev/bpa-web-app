@@ -1,8 +1,8 @@
 import React, { createContext, useContext } from 'react'
-import { THEME_DATA, ThemeProps } from './theme.schema'
-import data from './theme.scheme.json'
+// import { THEME_DATA } from './theme.schema'
+import THEMES from './theme.scheme.json'
 
-type PersonalInfo = typeof data;
+export type ThemeProps = typeof THEMES.data.light;
 
 type Props = {
   theme: ThemeProps
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const ThemeContext = createContext<Props>({
-  theme: THEME_DATA.light,
+  theme: THEMES.data.light,
   setTheme: () => {},
   getThemes: () => Array<ThemeProps>,
   getFonts: () => Array<string>,

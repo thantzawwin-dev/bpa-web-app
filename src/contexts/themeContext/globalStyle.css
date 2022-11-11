@@ -1,0 +1,55 @@
+:root {
+  --theme-font: "Helvetica";
+  --theme-colors-body: #FFFFFF;
+  --theme-colors-text: #000000;
+  --theme-colors-link-text: teal;
+  --theme-colors-button-background: #000000;
+  --theme-colors-button-text: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('assets/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: var(--theme-colors-body);
+  color: var(--theme-colors-text);
+  font-family: var(--theme-font);
+  transition: all 0-50s linear;
+}
+
+a {
+  color: var(--theme-colors-link-text);
+  cursor: pointer;
+}
+
+button.btn {
+  background-color: var(--theme-colors-button-background);
+  color: var(--theme-colors-button-text);
+}
+
+button.cancel {
+  background-color: #ff0000;
+  color: var(--theme-colors-button-text);
+}
+
+button:disabled {
+  background-color: #ebebeb;
+  color: #333333;
+}
+
+button {
+  border: 0;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-top: 5px;
+  cursor: pointer;
+  background-color: #1064EA;
+  color: #FFFFFF;
+  font-family: var(--theme-font);
+}

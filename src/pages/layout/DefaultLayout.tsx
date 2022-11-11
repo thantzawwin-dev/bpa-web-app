@@ -1,13 +1,18 @@
 
 import React from 'react'
 import { useTheme } from 'contexts'
-import { THEME_NAME } from 'contexts/themeContext/theme.schema';
+// import { THEME_NAME } from 'contexts/themeContext/theme.schema';
 // import { Button } from 'components'
 import { Header, Content, Sidebar, Footer } from './shared'
 
 type Props = {
   children?: React.ReactNode;
 };
+
+export function fetchCount(amount = 1, time = 2000) {
+  amount++;
+  return new Promise((resolve) => setTimeout(() => resolve({ data: amount }), time))
+}
 
 const DefaultLayout: React.FC<Props> = ({ children }) => {
   return (
