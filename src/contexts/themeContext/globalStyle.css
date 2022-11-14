@@ -18,7 +18,7 @@ body {
   background: var(--theme-colors-body);
   color: var(--theme-colors-text);
   font-family: var(--theme-font);
-  transition: all 0-50s linear;
+  transition: all 0.5s linear;
 }
 
 a {
