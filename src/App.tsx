@@ -11,7 +11,7 @@ type Props = {}
 const App: React.FC<Props> = (props) => {
   
   return (
-    <ThemeProvider defaultValue={THEMES.data.light}>
+    <ThemeProvider defaultValue={THEMES.data.dark}>
       <Suspense fallback={<div>loading</div>}>
         <DefaultLayout />
       </Suspense>

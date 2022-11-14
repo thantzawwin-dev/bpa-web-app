@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const ThemeContext = createContext<Props>({
-  theme: THEMES.data.light,
+  theme: THEMES.data.dark,
   setTheme: () => {},
   getThemes: () => Array<ThemeProps>,
   getFonts: () => Array<string>,
