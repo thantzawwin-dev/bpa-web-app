@@ -10,11 +10,7 @@ const Content: React.FC<Props> = (props) => {
       <Suspense fallback={<div>loading</div>}>
         <Routes>
           {publicRoutes.map((route) => (
-            <Route 
-              key={route.path} 
-              path={route.path} 
-              element={<route.element />} 
-            />
+            <Route key={route.path} path={route.path} element={<route.element />} />
           ))}
         </Routes>
       </Suspense>

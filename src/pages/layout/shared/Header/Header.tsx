@@ -8,7 +8,7 @@ const Header: React.FC<Props> = (props) => {
   return (
     <div className="header" >
       Header
-      <NavLink to="/billerName">Biller</NavLink>
+      <NavLink to="/air/billerName">Biller</NavLink>
     </div>
   )
 }
