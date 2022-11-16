@@ -5,6 +5,10 @@
       "name": "Light",
       "style": {
         "colors": {
+          "header": {
+            "text": "#FFFFFF",
+            "background": "#590CA6"
+          },
           "body": "#FFFFFF",
           "text": "#000000",
           "button": {
@@ -25,6 +29,10 @@
       "name": "Dark",
       "style": {
         "colors": {
+          "header": {
+            "text": "#590CA6",
+            "background": "#FFFFFF"
+          },
           "body": "#000000",
           "text": "#FFFFFF",
           "button": {
@@ -44,6 +52,10 @@
       "name": "Material",
       "style": {
         "colors": {
+          "header": {
+            "text": "#6a1b9a",
+            "background": "#ebdbf5"
+          },
           "body": "#6a1b9a",
           "text": "#ebdbf5",
           "button": {
@@ -63,6 +75,10 @@
       "name": "Sharp",
       "style": {
         "colors": {
+          "header": {
+            "text": "#ffeb3b",
+            "background": "#292500"
+          },
           "body": "#ffeb3b",
           "text": "#292500",
           "button": {
@@ -82,6 +98,10 @@
       "name": "Calm",
       "style": {
         "colors": {
+          "header": {
+            "text": "#80cbc4",
+            "background": "#002b24"
+          },
           "body": "#80cbc4",
           "text": "#002b24",
           "button": {
@@ -101,6 +121,10 @@
       "name": "Cherry Bon Bon",
       "style": {
         "colors": {
+          "header": {
+            "text": "#c62828",
+            "background": "#ffeeed"
+          },
           "body": "#c62828",
           "text": "#ffeeed",
           "button": {
@@ -120,6 +144,10 @@
       "name": "Sea Wave",
       "style": {
         "colors": {
+          "header": {
+            "text": "#9be7ff",
+            "background": "#0d47a1"
+          },
           "body": "#9be7ff",
           "text": "#0d47a1",
           "button": {

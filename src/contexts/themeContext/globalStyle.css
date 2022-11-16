@@ -1,9 +1,11 @@
 :root {
   --theme-font: "Helvetica";
+  --theme-colors-header-background: #590CA6;
+  --theme-colors-header-text: #FFFFFF;
   --theme-colors-body: #FFFFFF;
   --theme-colors-text: #000000;
   --theme-colors-link-text: teal;
-  --theme-colors-button-background: #000000;
+  --theme-colors-button-background: #2a1717;
   --theme-colors-button-text: #FFFFFF;
 }
 
@@ -52,4 +54,9 @@ button {
   background-color: #1064EA;
   color: #FFFFFF;
   font-family: var(--theme-font);
+}
+
+.theme-header {
+  background-color: var(--theme-colors-header-background);
+  color: var(--theme-colors-header-text);
 }

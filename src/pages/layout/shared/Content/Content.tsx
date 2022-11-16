@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import React, { Suspense } from 'react'
-import { publicRoutes } from 'routes'
+import { privateRoutes } from 'routes'
 
 type Props = {}
 
@@ -9,9 +9,10 @@ const Content: React.FC<Props> = (props) => {
     <>
       <Suspense fallback={<div>loading</div>}>
         <Routes>
-          {publicRoutes.map((route) => (
+          {privateRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={<route.element />} />
           ))}
+          <Route path="/" element={<Navigate to="/bpa-web" replace={true} />} />
         </Routes>
       </Suspense>
     </>

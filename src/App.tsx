@@ -1,27 +1,27 @@
-import React, { Suspense, lazy } from "react"
-import { ThemeProvider } from "contexts"
+import React, { Suspense } from 'react'
+import { ThemeProvider } from 'contexts'
 import THEMES from 'contexts/themeContext/theme.scheme.json'
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { publicRoutes } from 'routes'
 // import logo from './logo.svg'
-
-// Containers
-const DefaultLayout = lazy(() => import("pages/layout/DefaultLayout"));
-
 
 type Props = {}
 
 const App: React.FC<Props> = (props) => {
-
   return (
     <ThemeProvider defaultValue={getTheme()}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<div>loading</div>}>
-          <DefaultLayout />
+          <Routes>
+            {publicRoutes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.element />} />
+            ))}
+          </Routes>
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>
   )
-};
+}
 
 const getKeyValue = (key: string) => (obj: Record<string, any>) => obj[key]
 
@@ -34,4 +34,4 @@ const getTheme = () => {
   return theme
 }
 
-export default App;
+export default App

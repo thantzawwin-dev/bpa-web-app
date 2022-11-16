@@ -14,7 +14,7 @@ export function fetchCount(amount = 1, time = 2000) {
   return new Promise((resolve) => setTimeout(() => resolve({ data: amount }), time))
 }
 
-const DefaultLayout: React.FC<Props> = ({ children }) => {
+const DefaultLayout: React.FC<Props> = (props) => {
   const { theme, setTheme } = useTheme();
   return (
     <div>

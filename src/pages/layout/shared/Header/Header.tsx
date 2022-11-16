@@ -6,7 +6,7 @@ type Props = {}
 
 const Header: React.FC<Props> = (props) => {
   return (
-    <div className="header" >
+    <div className="header theme-header">
       Header
       <NavLink to="/air/billerName">Biller</NavLink>
     </div>

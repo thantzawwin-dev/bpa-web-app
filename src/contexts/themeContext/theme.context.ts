@@ -2,7 +2,29 @@ import React, { createContext, useContext } from 'react'
 // import { THEME_DATA } from './theme.schema'
 import THEMES from './theme.scheme.json'
 
-export type ThemeProps = typeof THEMES.data.light;
+export type ThemeProps = {
+  id: string;
+  name: string;
+  style: {
+    colors?: {
+      header?: {
+        text: string;
+        background: string;
+      };
+      body?: string;
+      text?: string;
+      button?: {
+        text: string;
+        background: string;
+      };
+      link?: {
+        text: string;
+        opacity: number;
+      };
+    };
+    font?: string;
+  };
+}
 
 type Props = {
   theme: ThemeProps
