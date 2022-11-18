@@ -1,4 +1,5 @@
 import React from 'react'
+import { Game, GamePNG, GameJPG } from 'assets'
 
 type Props = {}
 
@@ -6,6 +7,13 @@ const Home = (props: Props) => {
   return (
     <div>
       <p>Some example text..</p>
+
+      <img src={Game} className="theme-channel-logo" alt="loading" />
+
+      <img src={GamePNG} className="theme-channel-logo" alt="loading" />
+
+      <img src={GameJPG} className="theme-channel-logo" alt="loading" />
+
       <h2>Scroll back up again to "remove" the sticky position.</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et

@@ -21,6 +21,7 @@ export type ThemeProps = {
         text: string;
         opacity: number;
       };
+      icon?: string;
     };
     font?: string;
   };

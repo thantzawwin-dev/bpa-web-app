@@ -4,6 +4,7 @@ import { ThemeContext, ThemeProps } from './theme.context'
 import THEMES from './theme.scheme.json'
 import _ from 'lodash'
 import './globalStyle.css'
+import { generateBlackToTargetColor } from 'utils/helpers/generateTargetColor'
 
 type Props = {
   defaultValue: ThemeProps
@@ -30,7 +31,15 @@ const createStyleVariables = (obj: any, prefix: string, addVariable: CallableFun
     if (_.isObject(obj[key])) {
       createStyleVariables(obj[key], [prefix, key].join('-'), addVariable)
     } else {
-      addVariable({ key: [prefix, key].join('-'), value: obj[key] })
+      
+      switch(key) {
+        case 'icon': 
+        console.log('key', generateBlackToTargetColor(obj[key]))
+        addVariable({ key: [prefix, key].join('-'), value: generateBlackToTargetColor(obj[key]) })
+        break;
+        default: addVariable({ key: [prefix, key].join('-'), value: obj[key] })
+        break;
+      }
     }
   }
 }

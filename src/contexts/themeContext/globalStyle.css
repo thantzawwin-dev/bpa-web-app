@@ -7,6 +7,7 @@
   --theme-colors-link-text: teal;
   --theme-colors-button-background: #2a1717;
   --theme-colors-button-text: #FFFFFF;
+  --theme-colors-icon: "#3F78E0";
 }
 
 @font-face {
@@ -59,4 +60,20 @@ button {
 .theme-header {
   background-color: var(--theme-colors-header-background);
   color: var(--theme-colors-header-text);
+}
+
+.theme-channel-logo {
+  /* filter: invert(0%) sepia(78%) saturate(1386%) hue-rotate(236deg) brightness(103%) contrast(108%); */
+  filter: var(--theme-colors-icon)
+}
+
+.theme-channel-logo > svg > g {
+  color: red;
+  border: 5px solid currentColor;
+  fill: currentColor !important;
+}
+
+.theme-channel-Logo > path {
+  /* fill: currentColor; */
+  fill: red;
 }
