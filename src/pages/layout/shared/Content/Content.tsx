@@ -6,16 +6,16 @@ type Props = {}
 
 const Content: React.FC<Props> = (props) => {
   return (
-    <>
+    <div>
       <Suspense fallback={<div>loading</div>}>
         <Routes>
           {privateRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={<route.element />} />
           ))}
-          <Route path="/" element={<Navigate to="/bpa-web" replace={true} />} />
+          <Route path="/*" element={<Navigate to="/404" replace={true} />} />
         </Routes>
       </Suspense>
-    </>
+    </div>
   )
 }
 

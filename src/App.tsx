@@ -1,11 +1,13 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { ThemeProvider } from 'contexts'
 import THEMES from 'contexts/themeContext/theme.scheme.json'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { publicRoutes } from 'routes'
 // import logo from './logo.svg'
 
 type Props = {}
+
+const DefaultLayout = lazy(() => import('pages/layout/DefaultLayout'))
 
 const App: React.FC<Props> = (props) => {
   return (
@@ -16,6 +18,8 @@ const App: React.FC<Props> = (props) => {
             {publicRoutes.map((route) => (
               <Route key={route.path} path={route.path} element={<route.element />} />
             ))}
+            <Route path="/bpa-web/*" element={<DefaultLayout />} />
+            <Route path="/*" element={<Navigate to="/bpa-web" replace={true} />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

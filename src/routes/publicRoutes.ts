@@ -4,7 +4,6 @@ import { lazy } from 'react'
 // const Register = lazy(() => import('../pages/publicPages/Register/Register'))
 const Page404 = lazy(() => import('pages/publicPages/Page404/Page404'))
 const Page500 = lazy(() => import('pages/publicPages/Page500/Page500'))
-const DefaultLayout = lazy(() => import('pages/layout/DefaultLayout'))
 
 type Props = {
   path: string
@@ -16,7 +15,6 @@ export const publicRoutes: Array<Props> = [
   // { path: '/register', name: 'User Registration', element: Register },
   { path: '/404', element: Page404 },
   { path: '/500', element: Page500 },
-  { path: '/*', element: DefaultLayout },
 ]
 
 export default publicRoutes

@@ -1,6 +1,6 @@
 # Remarks
 
-- theme converter
+- Authentication context with react-router
 
 # toDos
 
@@ -13,3 +13,7 @@
 - Dynamic Theme Button Component
 - Dynamic Theme Background & Text
 - Footer Component
+
+# Finished
+
+- Theme Converter

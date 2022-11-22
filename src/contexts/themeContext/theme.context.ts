@@ -1,8 +1,6 @@
 import React, { createContext, useContext } from 'react'
-// import { THEME_DATA } from './theme.schema'
-import THEMES from './theme.scheme.json'
 
-export type ThemeProps = {
+export interface ThemeProps {
   id: string;
   name: string;
   style: {
@@ -34,12 +32,7 @@ type Props = {
   getFonts: React.Dispatch<Array<string>>
 }
 
-export const ThemeContext = createContext<Props>({
-  theme: THEMES.data.light,
-  setTheme: () => {},
-  getThemes: () => Array<ThemeProps>,
-  getFonts: () => Array<string>,
-})
+export const ThemeContext = createContext<Props>({} as Props)
 
 export const useTheme = () => {
   const { theme, setTheme, getThemes, getFonts } = useContext(ThemeContext)

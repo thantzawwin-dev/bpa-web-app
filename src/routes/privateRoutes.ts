@@ -12,12 +12,11 @@ type Props = {
 }
 
 const privateRoutes: Array<Props> = [
-  // { path: '/', element: Home },
-  { path: '/bpa-web', element: Home },
-  { path: '/bpa-web/:category', element: Category },
-  { path: '/bpa-web/:category/:biller', element: BillPayment },
-  { path: '/bpa-web/thank-you', element: ThankYou },
-  { path: '/bpa-web/confirm', element: Confirm },
+  { path: '/', element: Home },
+  { path: '/thank-you', element: ThankYou },
+  { path: '/:category', element: Category },
+  { path: '/:category/:biller', element: BillPayment },
+  { path: '/:category/:biller/confirm', element: Confirm },
 ]
 
 export default privateRoutes

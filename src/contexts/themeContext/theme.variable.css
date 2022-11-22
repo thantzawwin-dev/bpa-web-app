@@ -10,21 +10,7 @@
   --theme-colors-icon: "#3F78E0";
 }
 
-@font-face {
-  font-family: 'Helvetica';
-  src: url('assets/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  background: var(--theme-colors-body);
-  color: var(--theme-colors-text);
-  font-family: var(--theme-font);
-  transition: all 0.5s linear;
-}
-
-a {
+/* a {
   color: var(--theme-colors-link-text);
   cursor: pointer;
 }
@@ -55,25 +41,4 @@ button {
   background-color: #1064EA;
   color: #FFFFFF;
   font-family: var(--theme-font);
-}
-
-.theme-header {
-  background-color: var(--theme-colors-header-background);
-  color: var(--theme-colors-header-text);
-}
-
-.theme-channel-logo {
-  /* filter: invert(0%) sepia(78%) saturate(1386%) hue-rotate(236deg) brightness(103%) contrast(108%); */
-  filter: var(--theme-colors-icon)
-}
-
-.theme-channel-logo > svg > g {
-  color: red;
-  border: 5px solid currentColor;
-  fill: currentColor !important;
-}
-
-.theme-channel-Logo > path {
-  /* fill: currentColor; */
-  fill: red;
-}
+} */

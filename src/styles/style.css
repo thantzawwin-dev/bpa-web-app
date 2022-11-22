@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  background: var(--theme-colors-body);
+  color: var(--theme-colors-text);
+  font-family: var(--theme-font);
+  transition: all 0.5s linear;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('assets/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Theme style */
+
+.theme-header {
+  background-color: var(--theme-colors-header-background);
+  color: var(--theme-colors-header-text);
+}
+
+.theme-category-logo {
+  /* filter: invert(0%) sepia(78%) saturate(1386%) hue-rotate(236deg) brightness(103%) contrast(108%); */
+  filter: var(--theme-colors-icon)
+}

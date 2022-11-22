@@ -22,13 +22,13 @@ const DefaultLayout: React.FC<Props> = (props) => {
       <div className="wrer d-flex flex-column min-vh-100 bg-light">
         <Header />
         <h2>{theme.name}</h2>
-        <button onClick={()=>setTheme(THEMES.data.light)}>light</button> |
-        <button onClick={()=>setTheme(THEMES.data.dark)}>dark</button> |
-        <button onClick={()=>setTheme(THEMES.data.material)}>material</button> |
-        <button onClick={()=>setTheme(THEMES.data.sharp)}>sharp</button> |
-        <button onClick={()=>setTheme(THEMES.data.calm)}>calm</button> |
-        <button onClick={()=>setTheme(THEMES.data.cherryBonBon)}>cherry Bon Bon</button> |
-        <button onClick={()=>setTheme(THEMES.data.seaWave)}>sea Wave</button>
+        <button onClick={() => setTheme(THEMES.data.light)}>light</button> |
+        <button onClick={() => setTheme(THEMES.data.dark)}>dark</button> |
+        <button onClick={() => setTheme(THEMES.data.material)}>material</button> |
+        <button onClick={() => setTheme(THEMES.data.sharp)}>sharp</button> |
+        <button onClick={() => setTheme(THEMES.data.calm)}>calm</button> |
+        <button onClick={() => setTheme(THEMES.data.cherryBonBon)}>cherry Bon Bon</button> |
+        <button onClick={() => setTheme(THEMES.data.seaWave)}>sea Wave</button>
         <div className="body flex-grow-1 px-3">
           <Content />
         </div>

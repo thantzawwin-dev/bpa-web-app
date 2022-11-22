@@ -3,7 +3,7 @@ import { ThemeContext, ThemeProps } from './theme.context'
 // import { ThemeProps, THEME_DATA } from './theme.schema'
 import THEMES from './theme.scheme.json'
 import _ from 'lodash'
-import './globalStyle.css'
+import './theme.variable.css'
 import { generateBlackToTargetColor } from 'utils/helpers/generateTargetColor'
 
 type Props = {
@@ -31,20 +31,19 @@ const createStyleVariables = (obj: any, prefix: string, addVariable: CallableFun
     if (_.isObject(obj[key])) {
       createStyleVariables(obj[key], [prefix, key].join('-'), addVariable)
     } else {
-      
-      switch(key) {
-        case 'icon': 
-        console.log('key', generateBlackToTargetColor(obj[key]))
-        addVariable({ key: [prefix, key].join('-'), value: generateBlackToTargetColor(obj[key]) })
-        break;
-        default: addVariable({ key: [prefix, key].join('-'), value: obj[key] })
-        break;
+      switch (key) {
+        case 'icon':
+          addVariable({ key: [prefix, key].join('-'), value: generateBlackToTargetColor(obj[key]) })
+          break
+        default:
+          addVariable({ key: [prefix, key].join('-'), value: obj[key] })
+          break
       }
     }
   }
 }
 
-export const ThemeProvider: React.FC<Props> = ({ defaultValue, children }) => {
+const ThemeProvider: React.FC<Props> = ({ defaultValue, children }) => {
   const [theme, setTheme] = useState(defaultValue)
 
   useEffect(() => {
@@ -68,3 +67,5 @@ export const ThemeProvider: React.FC<Props> = ({ defaultValue, children }) => {
 
   return <ThemeContext.Provider value={themeProviderValue}>{children}</ThemeContext.Provider>
 }
+
+export default ThemeProvider
