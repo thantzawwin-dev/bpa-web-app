@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 class Color {
   constructor(r, g, b) {
@@ -117,6 +117,7 @@ class Color {
     } else {
       const d = max - min;
       s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      // eslint-disable-next-line default-case
       switch (max) {
         case r:
           h = (g - b) / d + (g < b ? 6 : 0);
@@ -306,21 +307,20 @@ export const generateBlackToTargetColor = (targetColor) => {
   const solver = new Solver(color);
   const result = solver.solve();
 
-  let lossMsg;
-  if (result.loss < 1) {
-    lossMsg = 'This is a perfect result.';
-  } else if (result.loss < 5) {
-    lossMsg = 'The is close enough.';
-  } else if (result.loss < 15) {
-    lossMsg = 'The color is somewhat off. Consider running it again.';
-  } else {
-    lossMsg = 'The color is extremely off. Run it again!';
-  }
-
+  // let lossMsg;
+  // if (result.loss < 1) {
+  //   lossMsg = 'This is a perfect result.';
+  // } else if (result.loss < 5) {
+  //   lossMsg = 'The is close enough.';
+  // } else if (result.loss < 15) {
+  //   lossMsg = 'The color is somewhat off. Consider running it again.';
+  // } else {
+  //   lossMsg = 'The color is extremely off. Run it again!';
+  // }
   // console.log(`('.realPixel').css('background-color', ${color.toString()})`);
   // console.log(`('.filterPixel').attr('style', ${result.filter})`);
   // console.log(`('.filterDetail').text(${result.filter})`);
-  //console.log(`Loss: ${result.loss.toFixed(1)}. <b>${lossMsg}</b>`);
+  // console.log(`Loss: ${result.loss.toFixed(1)}. <b>${lossMsg}</b>`);
 
   return result.filter;
 }

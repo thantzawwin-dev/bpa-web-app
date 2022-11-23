@@ -1,14 +1,10 @@
+import { AuthProps } from 'MyModels'
 import { createContext, useContext } from 'react'
 
 // const AuthContext = createContext({
 //   authenticated: false,
 //   setAuthenticated: () => {},
 // })
-
-export interface AuthProps {
-  token: string | null
-  claim: string | null
-}
 
 type Props = {
   auth: AuthProps | null

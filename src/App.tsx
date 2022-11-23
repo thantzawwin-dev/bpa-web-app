@@ -1,25 +1,33 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from 'contexts'
 import THEMES from 'contexts/themeContext/theme.scheme.json'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { publicRoutes } from 'routes'
+import { getSearchParam } from 'services/url/url.service'
 // import logo from './logo.svg'
 
 type Props = {}
 
-const DefaultLayout = lazy(() => import('pages/layout/DefaultLayout'))
-
 const App: React.FC<Props> = (props) => {
+  const getTheme = () => {
+    const themeParam = getSearchParam('theme') || ''
+    const themeName = THEMES.data.hasOwnProperty(themeParam) ? themeParam : 'light'
+    const theme = getKeyValue(themeName)(THEMES.data)
+    return theme
+  }
+
   return (
     <ThemeProvider defaultValue={getTheme()}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<div>loading</div>}>
           <Routes>
             {publicRoutes.map((route) => (
-              <Route key={route.path} path={route.path} element={<route.element />} />
+              <Route
+                key={route.key}
+                element={<route.element {...route.elementProps} />}
+                {...route.props}
+              />
             ))}
-            <Route path="/bpa-web/*" element={<DefaultLayout />} />
-            <Route path="/*" element={<Navigate to="/bpa-web" replace={true} />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
@@ -28,14 +36,5 @@ const App: React.FC<Props> = (props) => {
 }
 
 const getKeyValue = (key: string) => (obj: Record<string, any>) => obj[key]
-
-const getTheme = () => {
-  const queryString = window.location.search
-  const urlParams = new URLSearchParams(queryString)
-  const themeParam = urlParams.get('theme') || ''
-  const themeName = THEMES.data.hasOwnProperty(themeParam) ? themeParam : 'light'
-  const theme = getKeyValue(themeName)(THEMES.data)
-  return theme
-}
 
 export default App

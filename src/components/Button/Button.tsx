@@ -1,4 +1,3 @@
-import { ThemeProps } from 'contexts';
 import React from 'react'
 import './Button.css'
 

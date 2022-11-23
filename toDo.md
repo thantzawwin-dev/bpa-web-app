@@ -13,7 +13,10 @@
 - Dynamic Theme Button Component
 - Dynamic Theme Background & Text
 - Footer Component
+- 404 Pages
+- 500 Pages
 
 # Finished
 
 - Theme Converter
+- Auth Provider

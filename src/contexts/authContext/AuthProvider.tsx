@@ -1,5 +1,6 @@
-import { useMemo, useState, useEffect } from 'react'
-import { AuthContext, AuthProps } from './auth.context'
+import { useState } from 'react'
+import { AuthContext } from './auth.context'
+import { AuthProps } from 'MyModels'
 
 type Props = {
   defaultValue: AuthProps

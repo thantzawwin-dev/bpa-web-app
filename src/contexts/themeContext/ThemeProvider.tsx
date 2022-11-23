@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect } from 'react'
-import { ThemeContext, ThemeProps } from './theme.context'
-// import { ThemeProps, THEME_DATA } from './theme.schema'
-import THEMES from './theme.scheme.json'
 import _ from 'lodash'
+import { ThemeContext } from './theme.context'
+import THEMES from './theme.scheme.json'
 import './theme.variable.css'
 import { generateBlackToTargetColor } from 'utils/helpers/generateTargetColor'
+import { ThemeProps } from 'MyModels'
 
 type Props = {
   defaultValue: ThemeProps
