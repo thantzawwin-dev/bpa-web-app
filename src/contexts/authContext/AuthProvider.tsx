@@ -1,42 +1,39 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { AuthContext } from './auth.context'
 import { AuthProps } from 'MyModels'
+import { fakeAuth } from 'services/api/mockAuthApi'
 
 type Props = {
-  defaultValue: AuthProps
   children?: React.ReactNode
+  defaultValue: AuthProps
 }
 
-const fakeAuth: () => Promise<AuthProps> = () => {
-  return new Promise((resolve) =>
-    setTimeout(
-      () =>
-        resolve({
-          token: '2342f2f1d131rf12',
-          claim: '1243njk245',
-        }),
-      500,
-    ),
-  )
-}
+const AuthProvider: React.FC<Props> = ({ defaultValue, children }) => {
+  const [auth, setAuth] = useState(defaultValue)
 
-const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [auth, setAuth] = useState({} as AuthProps)
-
-  const handleLogin = async () => {
-    const auth = await fakeAuth()
+  const handleLogin = async (auth: AuthProps) => {
+    //const auth = await fakeAuth()
     setAuth(auth)
+  }
+
+  const hasAuth = () => {
+    return auth && auth.token && auth.signToken && auth.claim ? true : false
   }
 
   const handleLogout = () => setAuth({} as AuthProps)
 
-  const value = {
-    auth,
-    onLogin: handleLogin,
-    onLogout: handleLogout,
-  }
+  const authProviderValue = useMemo(
+    () => ({
+      auth,
+      setAuth,
+      hasAuth,
+      onLogin: handleLogin,
+      onLogout: handleLogout,
+    }),
+    [auth],
+  )
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={authProviderValue}>{children}</AuthContext.Provider>
 }
 
 export default AuthProvider

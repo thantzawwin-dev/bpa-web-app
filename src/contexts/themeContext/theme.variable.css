@@ -10,7 +10,7 @@
   --theme-colors-icon: "#3F78E0";
 }
 
-/* a {
+a {
   color: var(--theme-colors-link-text);
   cursor: pointer;
 }
@@ -41,4 +41,4 @@ button {
   background-color: #1064EA;
   color: #FFFFFF;
   font-family: var(--theme-font);
-} */
+}
