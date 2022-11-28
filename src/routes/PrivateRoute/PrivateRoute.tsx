@@ -6,11 +6,11 @@ import privateRoutes from './privateRoutes'
 type Props = {}
 
 const PrivateRoute: React.FC<Props> = () => {
+  const { isAuth } = useAuth()
 
-  const { hasAuth } = useAuth()
-  
-  if (!hasAuth()) {
-    return <Navigate to="/401" replace={true} />
+  if (!isAuth) {
+    console.log("FLASE")
+    return <Navigate to="/401" replace />
   }
 
   return (

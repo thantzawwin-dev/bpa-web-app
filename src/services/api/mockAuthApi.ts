@@ -1,6 +1,6 @@
 import { AuthProps } from "MyModels"
 
-export const fakeAuth: () => Promise<AuthProps> = () => {
+export const fakeAuth: (props: any) => Promise<AuthProps> = (props: any) => {
   return new Promise((resolve) =>
     setTimeout(
       () =>

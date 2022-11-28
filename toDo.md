@@ -1,4 +1,4 @@
-# Remarks
+# remarks
 
 - Authentication context with react-router
 
@@ -16,7 +16,7 @@
 - 404 Pages
 - 500 Pages
 
-# Finished
+# finished
 
 - Theme Converter
 - Auth Provider

@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from 'contexts'
+import { ThemeProvider, AuthProvider } from 'contexts'
 import THEMES from 'contexts/themeContext/theme.scheme.json'
 import { getSearchParam } from 'services/url/url.service'
 import { PublicRoute } from 'routes'
-import AuthProvider from 'contexts/authContext/AuthProvider'
 import { AuthProps } from 'MyModels'
 
 type Props = {}
 
 const App: React.FC<Props> = (props) => {
-  const getTheme = () => {
+  const getThemeParam = () => {
     const themeParam = getSearchParam('theme') || ''
     const themeName = THEMES.data.hasOwnProperty(themeParam) ? themeParam : 'light'
     const theme = getValueWithProp(themeName)(THEMES.data)
     return theme
   }
 
-  const getAuth = () => {
+  const getAuthParam = () => {
     const authParam: AuthProps = {} as AuthProps
     authParam['token'] = getSearchParam('token')
     authParam['signToken'] = getSearchParam('signToken')
@@ -26,13 +25,13 @@ const App: React.FC<Props> = (props) => {
   }
 
   return (
-    <AuthProvider defaultValue={getAuth()}>
-      <ThemeProvider defaultValue={getTheme()}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <ThemeProvider defaultValue={getThemeParam()}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <AuthProvider defaultValue={getAuthParam()}>
           <PublicRoute />
-        </BrowserRouter>
-      </ThemeProvider>
-    </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

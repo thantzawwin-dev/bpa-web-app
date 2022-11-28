@@ -5,6 +5,7 @@ import publicRoutes from './publicRoutes'
 type Props = {}
 
 const PublicRoute: React.FC<Props> = () => {
+  
   return (
     <Suspense fallback={<div>loading</div>}>
       <Routes>
