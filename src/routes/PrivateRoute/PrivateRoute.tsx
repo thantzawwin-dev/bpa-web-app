@@ -1,16 +1,16 @@
-import { useAuth } from 'contexts/authContext/auth.context'
+import { useAuth } from 'contexts'
 import React, { Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import privateRoutes from './privateRoutes'
 
 type Props = {}
 
 const PrivateRoute: React.FC<Props> = () => {
-  const { isAuth } = useAuth()
-
-  if (!isAuth) {
-    console.log("FLASE")
-    return <Navigate to="/401" replace />
+  const { auth } = useAuth()
+  const location = useLocation()
+  
+  if (auth && !auth?.isAuthenticated) {
+    return <Navigate to='/launch-page' state={{ from:  location.pathname }} />
   }
 
   return (

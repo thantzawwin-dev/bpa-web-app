@@ -1,17 +1,15 @@
-import { AuthProps } from 'MyModels'
 import React, { createContext, useContext } from 'react'
+import { AuthProps } from 'MyModels'
 
 type Props = {
   auth: AuthProps | null
   setAuth: React.Dispatch<React.SetStateAction<AuthProps>>
-  isAuth: boolean
-  onLogin: () => Promise<void>
-  onLogout: () => void
+  getAuth: (signToken: string, redirectUrl?: string) => Promise<void>
 }
 
 export const AuthContext = createContext<Props>({} as Props)
 
 export const useAuth = () => {
-  const { auth, setAuth, isAuth, onLogin, onLogout } = useContext(AuthContext)
-  return { auth, setAuth, isAuth, onLogin, onLogout }
+  const { auth, setAuth, getAuth } = useContext(AuthContext)
+  return { auth, setAuth, getAuth }
 }

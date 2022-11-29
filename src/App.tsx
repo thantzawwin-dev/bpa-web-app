@@ -1,35 +1,61 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider, AuthProvider } from 'contexts'
+import { ThemeProvider, AuthProvider, TokenProvider } from 'contexts'
 import THEMES from 'contexts/themeContext/theme.scheme.json'
-import { getSearchParam } from 'services/url/url.service'
+import { url, localStore, themeKey, tokenKey } from 'services'
 import { PublicRoute } from 'routes'
-import { AuthProps } from 'MyModels'
+import { ThemeProps, TokenProps } from 'MyModels'
 
 type Props = {}
 
 const App: React.FC<Props> = (props) => {
+  const { getSearchParam } = url
+
   const getThemeParam = () => {
     const themeParam = getSearchParam('theme') || ''
-    const themeName = THEMES.data.hasOwnProperty(themeParam) ? themeParam : 'light'
-    const theme = getValueWithProp(themeName)(THEMES.data)
-    return theme
+    if (themeParam) {
+      const themeName = THEMES.data.hasOwnProperty(themeParam) ? themeParam : 'light'
+      const theme = getValueWithProp(themeName)(THEMES.data)
+      return theme
+    } else {
+      const theme = getLocalStorageTheme() || 'light'
+      return theme
+    }
   }
 
-  const getAuthParam = () => {
-    const authParam: AuthProps = {} as AuthProps
-    authParam['token'] = getSearchParam('token')
-    authParam['signToken'] = getSearchParam('signToken')
-    authParam['claim'] = getSearchParam('claim')
-    return authParam
+  const getLocalStorageTheme: () => ThemeProps | null = () => {
+    const theme = localStore.get<ThemeProps>(themeKey)
+    return theme || null
+  }
+
+  const getTokenParam = () => {
+    let tokenParam: TokenProps = {} as TokenProps
+    tokenParam['oAuthToken'] = getSearchParam('token')
+    tokenParam['signToken'] = getSearchParam('signToken')
+    tokenParam['claim'] = getSearchParam('claim')
+    tokenParam =
+      tokenParam && tokenParam.oAuthToken && tokenParam.signToken && tokenParam.claim
+        ? tokenParam
+        : getLocalStorageToken()
+    return tokenParam
+  }
+
+  const getLocalStorageToken: () => TokenProps = () => {
+    let tokenParam: TokenProps = {} as TokenProps
+    const localToken = localStore.get<TokenProps>(tokenKey)
+    if (localToken && localToken.oAuthToken && localToken.signToken && localToken.claim)
+      return localToken
+    else return tokenParam
   }
 
   return (
     <ThemeProvider defaultValue={getThemeParam()}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <AuthProvider defaultValue={getAuthParam()}>
-          <PublicRoute />
-        </AuthProvider>
+        <TokenProvider defaultValue={getTokenParam()}>
+          <AuthProvider>
+            <PublicRoute />
+          </AuthProvider>
+        </TokenProvider>
       </BrowserRouter>
     </ThemeProvider>
   )

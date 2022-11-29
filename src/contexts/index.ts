@@ -1,12 +1,12 @@
 import { useTheme } from './themeContext/theme.context'
 import ThemeProvider from './themeContext/ThemeProvider'
 
+import { useToken } from './tokenContext/token.context'
+import TokenProvider from './tokenContext/TokenProvider'
+
 import { useAuth } from './authContext/auth.context'
 import AuthProvider from './authContext/AuthProvider'
 
-import { useUser } from './userContext/user.context'
-import UserProvider from './userContext/UserProvider'
-
 export { useTheme, ThemeProvider }
+export { useToken, TokenProvider }
 export { useAuth, AuthProvider }
-export { useUser, UserProvider }

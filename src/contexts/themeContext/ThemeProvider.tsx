@@ -5,6 +5,7 @@ import THEMES from './theme.scheme.json'
 import './theme.variable.css'
 import { generateBlackToTargetColor } from 'utils/helpers/generateTargetColor'
 import { ThemeProps } from 'MyModels'
+import { localStore, themeKey } from 'services'
 
 type Props = {
   defaultValue: ThemeProps
@@ -47,7 +48,9 @@ const ThemeProvider: React.FC<Props> = ({ defaultValue, children }) => {
   const [theme, setTheme] = useState(defaultValue)
 
   useEffect(() => {
+    console.log(theme)
     getStyleVariable(theme).map((styleVariable) => setStyleVariableValue(styleVariable))
+    localStore.set(themeKey, theme)
   }, [theme])
 
   const setStyleVariableValue = ({ key, value }: keyValueProps): void => {

@@ -4,9 +4,6 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import 'styles/style.css'
 
-import { getHeaderValue } from 'services/header.service'
-
-getHeaderValue()
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
