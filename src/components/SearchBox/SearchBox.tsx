@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './SearchBox.css'
+import './searchBox.css'
 
 type Props = {
   value?: string
@@ -19,6 +19,7 @@ const SearchBox = (props: Props) => {
 
   return (
     <input
+      // className={['react-button', `storybook-button--${size}`, mode].join(' ')}
       type="search"
       value={value}
       placeholder={props.placeholder}

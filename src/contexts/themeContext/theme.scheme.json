@@ -64,7 +64,7 @@
             "background": "#ebdbf5"
           },
           "link": {
-            "text": "#ebdbf5",
+            "text": "teal",
             "opacity": 0.8
           },
           "icon": "#ebdbf5"
@@ -88,7 +88,7 @@
             "background": "#292500"
           },
           "link": {
-            "text": "#292500",
+            "text": "teal",
             "opacity": 0.8
           },
           "icon": "#292500"
@@ -112,7 +112,7 @@
             "background": "#002b24"
           },
           "link": {
-            "text": "#002b24",
+            "text": "teal",
             "opacity": 0.8
           },
           "icon": "#002b24"
@@ -136,7 +136,7 @@
             "background": "#ffeeed"
           },
           "link": {
-            "text": "#ffeeed",
+            "text": "teal",
             "opacity": 0.8
           },
           "icon": "#ffeeed"
@@ -160,7 +160,7 @@
             "background": "#0d47a1"
           },
           "link": {
-            "text": "#0d47a1",
+            "text": "teal",
             "opacity": 0.8
           },
           "icon": "#0d47a1"

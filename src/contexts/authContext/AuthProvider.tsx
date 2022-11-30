@@ -26,7 +26,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
           const channelPromise = await getChannelInfoMock({
             signToken: signToken,
           } as ChannelInfoRequestProps)
-          if (channelPromise && channelPromise.responseCode === 200) {
+          if (channelPromise && channelPromise.ErrorCode === '200') {
             auth.channel = channelPromise.data
             auth.isAuthenticated = true
             logger.log('Get auth Success')

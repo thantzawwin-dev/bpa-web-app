@@ -1,14 +1,11 @@
-import { IChannelInfo } from 'types'
+import { IChannelInfo, BaseResponse } from 'types'
 
 export type ChannelInfoRequestProps = {
   data?: IChannelInfo | null
   signToken: 'string'
 }
-
-export type ChannelResponse = {
+export interface ChannelResponse extends BaseResponse {
   data?: IChannelInfo | null
-  responseCode?: number
-  responseMessage?: string
 }
 
 export const getChannelInfo: (props: ChannelInfoRequestProps) => Promise<ChannelResponse | null> =
@@ -24,16 +21,26 @@ export const getChannelInfo: (props: ChannelInfoRequestProps) => Promise<Channel
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data)
+        //console.log('Success:', data)
         return {
-          channel: data,
+          data: {
+            channelCode: 'aplus',
+            channelName: 'A Plus',
+            channelLogo:
+              'file:///D:/my/projects/Bpa/bpa-web-app/src/assets/images/companyImages/CompanyName.svg',
+            channelCountry: 'Myanmar',
+            channelCurrency: 'MMK',
+            channelStatus: 'true',
+          } as IChannelInfo,
+          ErrorCode: '200',
+          ErrorMessage: 'Success',
         } as ChannelResponse
       })
       .catch((error) => {
         console.error('Error:', error)
         return {
-          responseCode: error.code,
-          responseMessage: error.message,
+          ErrorCode: error.code,
+          ErrorMessage: error.message,
         } as ChannelResponse
       })
     return null
@@ -55,8 +62,8 @@ export const getChannelInfoMock: (props: ChannelInfoRequestProps) => Promise<Cha
             channelCurrency: 'MMK',
             channelStatus: 'true',
           } as IChannelInfo,
-          responseCode: 200,
-          responseMessage: 'Success',
+          ErrorCode: '200',
+          ErrorMessage: 'Success',
         } as ChannelResponse),
       1000,
     ),

@@ -1,21 +1,46 @@
 import React from 'react'
-import './Button.css'
+import './button.css'
 
-type Props = {
-  className?: string; 
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
-  onClickAction?: () => void;
+interface Props {
+  /**
+   * Class name attribute is used to specify a class for an HTML element.
+   */
+  className?: string
+  /**
+   * Is this the principal call to action on the page?
+   */
+  primary?: boolean
+  /**
+   * What background color to use
+   */
+  backgroundColor?: string
+  /**
+   * How large should the button be?
+   */
+  size?: 'small' | 'medium' | 'large'
+  /**
+   * Button contents
+   */
+  label: string
+  /**
+   * Optional click handler
+   */
+  onClick?: () => void
+  style?: React.CSSProperties
+  children?: React.ReactNode
 }
 
+/**
+ * Primary UI component for user interaction
+ */
 const Button: React.FC<Props> = ({ 
   className,
   children, 
   style,
-  onClickAction
+  onClick
 }) => {
 
-  const handleOnclick = () => onClickAction;
+  const handleOnclick = () => onClick;
 
   className = `main ${className}`
   

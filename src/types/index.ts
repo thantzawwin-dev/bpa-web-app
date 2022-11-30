@@ -45,3 +45,8 @@ export interface IChannelInfo {
   channelCurrency: string
   channelStatus: string
 }
+
+export interface BaseResponse {
+  ErrorCode: string
+  ErrorMessage: string
+}
