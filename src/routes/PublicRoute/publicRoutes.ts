@@ -24,7 +24,7 @@ export const publicRoutes: Array<RouteProps> = [
     key: 0,
     props: { path: '/*' },
     element: Navigate,
-    elementProps: { to: `/launch-page`, replace: true },
+    elementProps: { to: `/${urlPrefix}`, replace: true },
   },
 ]
 

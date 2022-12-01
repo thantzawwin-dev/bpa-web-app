@@ -1,3 +1,4 @@
+import BreadcrumbItem from 'components/Breadcrumb.Item/Breadcrumb.Item'
 import React from 'react'
 
 type Props = {
@@ -14,4 +15,8 @@ const Breadcrumb = ({ children }: Props) => {
   )
 }
 
-export default Breadcrumb
+// export default Breadcrumb
+
+export default Object.assign(Breadcrumb, {
+  Item: BreadcrumbItem,
+})

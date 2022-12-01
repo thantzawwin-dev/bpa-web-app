@@ -37,8 +37,11 @@ const DefaultLayout: React.FC<Props> = (props) => {
         <NavLink to="internet">internet</NavLink> | <NavLink to="top-up">mobile top-up</NavLink>
         <br />
         <h2>Biller</h2>
-        <NavLink to="games/mlbb">mobile legend</NavLink> | <NavLink to="gift-card/i-tune">iTune</NavLink> |
-        <NavLink to="internet/hi-wifi">Hi wifi</NavLink> | <NavLink to="top-up/ooredoo">Ooredoo</NavLink>
+        <NavLink to="games/mlbb">mobile legend</NavLink> |{' '}
+        <NavLink to="gift-card/i-tune">iTune</NavLink> |{' '}
+        <NavLink to="internet/hi-wifi">Hi wifi</NavLink> |{' '}
+        <NavLink to="top-up/ooredoo">Ooredoo</NavLink> |{' '}
+        <NavLink to="top-up/ooredoo/ERROR">PageNotFound</NavLink>
         <div className="body flex-grow-1 px-3">
           <Content />
         </div>
