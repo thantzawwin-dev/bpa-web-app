@@ -1,7 +1,6 @@
-import Abank from './images/companyImages/Abank.svg'
-import AbankLogo from './images/companyImages/AbankLogo.svg'
-import Game from './images/mockTesting/game_icon.svg'
-import GamePNG from './images/mockTesting/game_icon.png'
-import GameJPG from './images/mockTesting/game_icon.jpg'
-
-export { Abank, AbankLogo, Game, GamePNG, GameJPG }
+export { default as Abank } from './images/companyImages/Abank.svg'
+export { default as AbankLogo } from './images/companyImages/AbankLogo.svg'
+export { default as CompanyName } from './images/companyImages/CompanyName.svg'
+export { default as Game } from './images/mockTesting/game_icon.svg'
+export { default as GamePNG } from './images/mockTesting/game_icon.png'
+export { default as GameJPG } from './images/mockTesting/game_icon.jpg'
